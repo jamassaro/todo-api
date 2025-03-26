@@ -21,7 +21,7 @@ router.get("/:userId", async (req, res) => {
 router.post("/", async (req, res) => {
   const task = req.body;
   const response = await supabase.from('tasks').insert(task).select();
-  console.log('response', response)
+
   if (response.error) {
     res.status(500).json({ error: response.error.message });
   } else {
